@@ -3,6 +3,7 @@ package com.movieapps;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.maps.MapsPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new MapsPackage(),
             new ImagePickerPackage(),
             new ReactNativeYouTube(),
             new VectorIconsPackage(),

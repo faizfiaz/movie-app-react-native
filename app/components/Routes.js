@@ -5,6 +5,7 @@ import Top from './Top'
 import Popular from './Popular'
 import Login from './Login'
 import Logout from './Logout'
+import Cinema from './Cinema'
 import DetailMovies from './DetailMovies'
 import {
   Image,
@@ -16,7 +17,7 @@ export const HomeMenu = DrawerNavigator({
 
   Home: {
     screen: Home,
-    navigationOptions: {
+    navigationOptions: {  
       title: 'Now Playing'
     },
   },
@@ -36,6 +37,12 @@ export const HomeMenu = DrawerNavigator({
     screen: Logout,
     navigationOptions: {
       title: 'Capture Movie Ticket!'
+    },
+  },
+  Cinema: {
+    screen: Cinema,
+    navigationOptions: {
+      title: 'Find Cinema!'
     },
   },
 }, {

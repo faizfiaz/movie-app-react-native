@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import Image from 'react-native-image-progress';
+import Progress from 'react-native-progress/Pie';
 import {
     ScrollView,
     Text,
     View,
     ListView,
-    Image,
     Dimensions,
+    TouchableHighlight,
     Button
 } from 'react-native'
 import renderIf from './renderIf'
@@ -64,14 +66,27 @@ export default class Popular extends Component {
         )
     }
 
+    itemClicked(data){
+        this.props.navigation.navigate('DetailMovies', {data : data})
+    }
+
     renderRow(rowData) {
         return (
-            <View style={{alignItems: 'center' }}>
-                <Image
-                    style={{ width: width * 0.5, height: 300, alignItems: 'center' }}
-                    source={{ uri: 'https://image.tmdb.org/t/p/w342' + rowData.poster_path }}
-                />
-            </View>
+            <TouchableHighlight onPress={() => { this.itemClicked(rowData) }}>
+                <View style={{ alignItems: 'center' }}>
+                    <Image
+                        indicator={Progress.Pie}
+                        indicatorProps={{
+                            size: 10,
+                            borderWidth: 0,
+                            color: 'rgba(0, 0, 0, 1)',
+                            unfilledColor: 'rgba(0, 0, 0, 0.2)'
+                        }}
+                        style={{ width: width * 0.5, height: 300, alignItems: 'center' }}
+                        source={{ uri: 'https://image.tmdb.org/t/p/w342' + rowData.poster_path }}
+                    />
+                </View>
+            </TouchableHighlight>
         )
-    }
+    }   
 }
